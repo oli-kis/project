@@ -3,11 +3,22 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Calculator, Car } from "lucide-react";
 import Link from "next/link";
+import { createClient } from '@/utils/supabase/server'
+import LoggedInNavbar from "@/components/ui/loggedInNavbar";
 
-export default function Home() {
+export default async function Home() {
+    const supabase = await createClient()
+  
+    const { data, error } = await supabase.auth.getUser()
+
+    let isUser = true;
+    if (error || !data?.user) {
+      isUser = false;
+    }
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted">
-      <Navbar />
+      {isUser ? <LoggedInNavbar /> : <Navbar />}
+ 
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">

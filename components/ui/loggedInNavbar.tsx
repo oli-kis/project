@@ -1,15 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { Download, Moon, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '@/img/taxioLogo.png';
-import AuthButtons from "@/components/ui/AuthButtons";
+import DropdownButton from './dropdownButton';
 
-export default function Navbar() {
+export default function LoggedInNavbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  
   return (
     <nav className="bg-black px-4 py-1 flex items-center justify-between w-[90%] max-w-6xl mx-auto mt-4 rounded-2xl shadow-lg">
     {/* Logo */}
@@ -41,7 +40,9 @@ export default function Navbar() {
       
       {/* Right Buttons */}
       <div className="flex items-center gap-4">
-        <AuthButtons/>
+      <button className="px-4 py-2 bg-white text-black rounded-lg">Dashboard</button>
+      {/* <button className="p-2 border rounded-full border-gray-500 w-8 h-8 flex items-center justify-center">0</button> */}
+      <DropdownButton />
       </div>
     </nav>
   );

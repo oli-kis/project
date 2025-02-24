@@ -48,6 +48,12 @@ export default function LoginPage() {
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
+            <p className="mt-2 text-sm text-gray-600">
+              Don't have an account yet? {' '}
+              <a href="/register" className="text-blue-600 hover:underline">
+                Create one
+              </a>
+            </p>
           </div>
 
           <button
@@ -61,3 +67,4 @@ export default function LoginPage() {
     </div>
   );
 }
+
