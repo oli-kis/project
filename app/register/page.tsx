@@ -4,12 +4,14 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
 import { signup } from "./actions"
+import Navbar from '@/components/ui/navbar';
 
 export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
+      <Navbar/>
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}

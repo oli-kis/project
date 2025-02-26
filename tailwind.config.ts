@@ -20,7 +20,8 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
-        background: "rgb(var(--background-start-rgb))",
+        background: "#111827",
+        darkBackground: "#0b111b",
         secondary: {
           300: "#878787",
           400: "#616161",
@@ -35,7 +36,7 @@ const config: Config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        foreground: 'hsl(var(--foreground))',
+        foreground: '#f3f4f6',
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',

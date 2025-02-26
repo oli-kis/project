@@ -10,8 +10,9 @@ export default function LoggedInNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <nav className="bg-black px-4 py-1 flex items-center justify-between w-[90%] max-w-6xl mx-auto mt-4 rounded-2xl shadow-lg">
+    <nav className="bg-darkBackground shadow-md shadow-green-400/10 px-4 py-1 flex items-center justify-between w-[90%] max-w-6xl mx-auto rounded-2xl shadow-lg fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
     {/* Logo */}
+    <a href="/">
     <div className="flex items-center gap-2">
     <Image 
         src={logo}
@@ -21,6 +22,7 @@ export default function LoggedInNavbar() {
       />
       <span className="text-white-300 text-xl font-bold">Taximo</span>
     </div>
+      </a>
     
     {/* Navigation Links */}
     <div className="hidden md:flex space-x-6">
