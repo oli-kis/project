@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useTransition } from "react";
 import { LogOut } from "lucide-react";
-import { logout } from "@/app/logout/actions";
+import { logout, redirectToHome } from "@/app/logout/actions";
 
 const DropdownButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +22,19 @@ const DropdownButton = () => {
     };
   }, []);
 
+  const [isPending, startTransition] = useTransition();
+
+  const handleClickSignOutButton = () => {
+    startTransition(async () => {
+      const { errorMessage } = await logout();
+      if (errorMessage) {
+        console.error(errorMessage);
+      } else {
+        redirectToHome();
+      }
+    });
+  };
+
   return (
     <div className="relative" ref={dropdownRef}>
       {/* Main Button */}
@@ -35,11 +48,9 @@ const DropdownButton = () => {
       {/* Dropdown Menu */}
       {isOpen && (
         <div className="absolute right-0 mt-2 w-36 bg-black border border-gray-600 rounded-lg shadow-lg">
-            <form action={logout}>
-                <button className="w-full flex items-center gap-2 px-4 py-2 text-white hover:bg-gray-800 rounded-lg">
-                    <LogOut size={16} /> Sign out
-                </button>
-            </form>
+          <button onClick={handleClickSignOutButton} disabled={isPending} className="w-full flex items-center gap-2 px-4 py-2 text-white hover:bg-gray-800 rounded-lg">
+            <LogOut size={16} /> Sign out
+          </button>
         </div>
       )}
     </div>

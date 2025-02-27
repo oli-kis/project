@@ -6,12 +6,12 @@ export default function AuthButtons () {
     <div className="flex">
         <Link href="/login">
       <button className="px-4 py-2 bg-transparent text-white rounded-l-lg border border-gray-600 hover:bg-gray-700">
-        Sign In
+        Anmelden
       </button>
         </Link>
         <Link href="/register">
       <button className="px-4 py-2 bg-transparent text-white rounded-r-lg border border-gray-600 hover:bg-gray-700">
-        Sign up
+        Registrieren
       </button>
         </Link>
     </div>

@@ -1,17 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { login } from "./actions"
+import { login } from "./actions";
 import { motion } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
-import Navbar from '@/components/ui/navbar';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
-return (
-  <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
-      <Navbar/>
+  return (
+    <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -19,27 +18,27 @@ return (
         className="w-full max-w-md rounded-lg bg-gray-800 p-8 shadow-lg"
       >
         <h2 className="mb-6 text-center text-2xl font-bold text-white">
-          Login
+          Anmelden
         </h2>
-        
+
         <form className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-400">Email</label>
             <input
               type="email"
               className="mt-1 w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white focus:border-blue-500 focus:outline-none"
-              placeholder="Enter your email"
+              placeholder="Geben Sie eine Email ein"
               name="email"
             />
           </div>
-          
+
           <div>
-            <label className="block text-sm font-medium text-gray-400">Password</label>
+            <label className="block text-sm font-medium text-gray-400">Passwort</label>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
                 className="mt-1 w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white focus:border-blue-500 focus:outline-none"
-                placeholder="Enter your password"
+                placeholder="Geben Sie ein Passwort ein"
                 name="password"
               />
               <button
@@ -51,16 +50,22 @@ return (
               </button>
             </div>
           </div>
-          
+
           <button
             formAction={login}
-            className="w-full rounded-md bg-blue-600 px-4 py-2 font-bold text-white hover:bg-blue-700"
+            className="w-full rounded-md bg-secondary-400 px-4 py-2 font-bold text-white hover:bg-secondary-700"
           >
-            Login
+            Anmelden
           </button>
         </form>
+
+        <div className="mt-4 text-center text-sm text-gray-400">
+          Noch kein Account?{' '}
+          <Link href="/register" className="text-blue-500 hover:text-blue-400">
+            Jetzt erstellen...
+          </Link>
+        </div>
       </motion.div>
     </div>
   );
 }
-

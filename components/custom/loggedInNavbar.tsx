@@ -29,11 +29,11 @@ export default function LoggedInNavbar() {
         <Link href="#" className="inline-flex h-8 w-max items-center justify-center rounded-lg 
               px-3 text-sm font-medium transition-colors 
              hover:bg-secondary-300/10 hover:text-accent-foreground 
-             disabled:pointer-events-none disabled:opacity-50">Calculate</Link>
+             disabled:pointer-events-none disabled:opacity-50">Rechner</Link>
         <Link href="#" className="inline-flex h-8 w-max items-center justify-center rounded-lg 
               px-3 text-sm font-medium transition-colors 
              hover:bg-secondary-300/10 hover:text-accent-foreground 
-             disabled:pointer-events-none disabled:opacity-50">Pricing</Link>
+             disabled:pointer-events-none disabled:opacity-50">Preise</Link>
         <Link href="/login" className="inline-flex h-8 w-max items-center justify-center rounded-lg 
               px-3 text-sm font-medium transition-colors 
              hover:bg-secondary-300/10 hover:text-accent-foreground 

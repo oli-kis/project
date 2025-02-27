@@ -1,18 +1,23 @@
 'use server'
-import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
+import { createClient } from "@/utils/supabase/server";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
-import { createClient } from '@/utils/supabase/server'
+export const logout = async () => {
+  try {
+    const { auth } = createClient()
 
-export async function logout() {
-  const supabase = await createClient()
+    const { error } = await auth.signOut();
 
-  const { error } = await supabase.auth.signOut()
+    if (error) throw error;
 
-  if (error) {
-    redirect('/error')
+    return { errorMessage: null };
+  } catch (error) {
+    return { errorMessage: "Something went wrong" };
   }
+};
 
-  revalidatePath('/', 'layout')
-  redirect('/')
+export const redirectToHome = () => {
+  revalidatePath("/", "layout");
+  redirect("/");
 }
